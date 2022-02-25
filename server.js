@@ -29,15 +29,19 @@ app.get('/app/flip/', (req, res) => {
 });
 
 app.get('/app/flips/:number', (req, res) => {
-
+    const flips = coinFlips(req.params.number)
+    const count = countFlips(flips);
+    res.status(200).json({"raw": flips, "summary": count})
 });
 
 app.get('/app/flip/call/heads', (req, res) => {
-
+    const game = flipACoin("heads");
+    res.status(200).json(game);
 });
 
 app.get('/app/flip/call/tails', (req, res) => {
-
+    const game = flipACoin("tails");
+    res.status(200).json(game);
 });
 
 
