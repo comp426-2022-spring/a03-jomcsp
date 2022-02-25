@@ -124,7 +124,7 @@ app.use(function(req, res){
        tailsNum++;
      }
    });
-   return "{ tails: " + tailsNum + ", heads: " + headsNum + " }";
+   return "{tails:" + tailsNum + ",heads:" + headsNum +"}";
  }
  
  /** Flip a coin!
@@ -148,7 +148,7 @@ app.use(function(req, res){
          result = 'lose'
      }
  
-     return "{ call: '"+ call +"', flip: '"+ coinResult+"', result: '"+result+"' }"
+     return "\\{\"call\":\""+ call +"\",\"flip\":\""+ coinResult+"\",\"result\":\""+result+"\"\\}"
  
      
  }
