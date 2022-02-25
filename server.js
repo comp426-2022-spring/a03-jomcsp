@@ -57,7 +57,7 @@ app.get('/app/flip/call/tails', (req, res) => {
         result = 'lose'
     }
 
-    res.status(200).json({"call":"tailss","flip":coinResult,"result":result});
+    res.status(200).json({"call":"tails","flip":coinResult,"result":result});
 });
 
 
