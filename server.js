@@ -36,12 +36,28 @@ app.get('/app/flips/:number', (req, res) => {
 
 app.get('/app/flip/call/heads', (req, res) => {
     const game = flipACoin("heads");
-    res.status(200).json(game);
+    coinResult = coinFlip();
+
+    if (coinResult === "heads") {
+        result = 'win';
+    } else {
+        result = 'lose'
+    }
+
+    res.status(200).json({"call":"heads","flip":coinResult,"result":result});
 });
 
 app.get('/app/flip/call/tails', (req, res) => {
     const game = flipACoin("tails");
-    res.status(200).json(game);
+    coinResult = coinFlip();
+
+    if (coinResult === "heads") {
+        result = 'win';
+    } else {
+        result = 'lose'
+    }
+
+    res.status(200).json({"call":"tailss","flip":coinResult,"result":result});
 });
 
 
@@ -148,7 +164,7 @@ app.use(function(req, res){
          result = 'lose'
      }
  
-     return "\\{\"call\":\""+ call +"\",\"flip\":\""+ coinResult+"\",\"result\":\""+result+"\"\\}"
+     return "{\"call\":\""+ call +"\",\"flip\":\""+ coinResult+"\",\"result\":\""+result+"\"\\}"
  
      
  }
