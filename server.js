@@ -31,7 +31,7 @@ app.get('/app/flip/', (req, res) => {
 app.get('/app/flips/:number', (req, res) => {
     const flips = coinFlips(req.params.number)
     const count = countFlips(flips);
-    res.status(200).json({"raw": flips, "summary": count})
+    res.status(200).json({"raw":flips, "summary": {"heads": count, "tails": flips.length-count}})
 });
 
 app.get('/app/flip/call/heads', (req, res) => {
@@ -140,7 +140,7 @@ app.use(function(req, res){
        tailsNum++;
      }
    });
-   return "{tails:" + tailsNum + ",heads:" + headsNum +"}";
+   return headsNum;
  }
  
  /** Flip a coin!
